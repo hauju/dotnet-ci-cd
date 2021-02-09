@@ -15,11 +15,14 @@ jobs:
       - name: Setup .NET 5
         uses: actions/setup-dotnet@v1
         with: 
-          actions dotnet-version: "5.0.x"
+          dotnet-version: "5.0.x"
 
       - name: Restore dependencies
         run: dotnet restore
 
       - name: Build app
         run: dotnet build -c Release --no-restore
+
+      - name: Run autimated tests
+        run: dotnet test -c Release --no-build
 
